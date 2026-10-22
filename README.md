@@ -249,17 +249,19 @@ Citations should be checked against the source PDF and the relevant section, rul
 
 Supported questions require the local Ollama service to be available. Questions rejected by retrieval as unsupported should be handled without generating an answer from unsupported evidence.
 
-## Evaluation: five supplied sample questions
+## Evaluation: Five Supplied Sample Questions
 
-The five supplied sample questions were tested through the API. The expected outcomes and sources are summarised below.
+The five supplied sample questions were tested through the FastAPI endpoint. Expected answers and sources are reproduced from the supplied sample-question document; actual answers and citations are recorded from the API responses.
 
-| # | Query | Expected result | Expected source | Result |
-|---|---|---|---|---|
-| 1 | What is the maximum loan-to-value ratio for a loan against debt mutual fund units? | 75% of the market value of the units | `04_Loan_Against_Securities_Policy_LAS-2026-01.pdf`, section 2 | Passed |
-| 2 | 10 लाख रुपये से अधिक शेष वाले बचत खाते पर ब्याज दर क्या है? | 3.50% per annum, effective 1 April 2026 | `12_Bachat_Khata_Byaj_Dar_Suchna_SB-2026-03.pdf`, rate table | Passed |
-| 3 | home loan ke liye maximum tenure kitna hai? | 30 years | `15_Grih_Rin_Niti_HL-2025-08.pdf`, section 3 | Passed |
-| 4 | लॉकर का किराया देय तिथि से 30 दिन के भीतर जमा न करने पर कितना दंड लगता है? | 10% penalty on overdue locker rent | `16_Locker_Suvidha_Niyam_LOC-2016-07.pdf`, Rule 4 | Passed |
-| 5 | What is the annual fee for the Bank's credit cards? | Abstain because the corpus does not establish the credit-card annual fee | No supporting source expected | Passed |
+| # | Query | Exact expected answer | Expected source | Actual API answer | Actual citation / evidence | Found | Result |
+|---|---|---|---|---|---|---|---|
+| S1 | What is the maximum loan-to-value ratio for a loan against debt mutual fund units? | 75% of the market value of the units. | `04_Loan_Against_Securities_Policy_LAS-2026-01.pdf`, section 2 | The maximum loan-to-value ratio for a loan against debt mutual fund units is 75%. | `04_Loan_Against_Securities_Policy_LAS-2026-01.pdf`, p. 1; `las-eligible-securities-ltv` | `true` | Passed |
+| S2 | 10 लाख रुपये से अधिक शेष वाले बचत खाते पर ब्याज दर क्या है? | 3.50 प्रतिशत वार्षिक (01 अप्रैल 2026 से प्रभावी)। | `12_Bachat_Khata_Byaj_Dar_Suchna_SB-2026-03.pdf`, rate table | ब्याज दर (वार्षिक): 3.50 प्रतिशत 10 लाख रुपये से अधिक (01 अप्रैल 2026 से)। | `12_Bachat_Khata_Byaj_Dar_Suchna_SB-2026-03.pdf`, p. 1; `savings-revised-rates-hindi` | `true` | Passed |
+| S3 | home loan ke liye maximum tenure kitna hai? | Home loan ki adhiktam avadhi 30 varsh (30 years) hai. | `15_Grih_Rin_Niti_HL-2025-08.pdf`, section 3 | grih rin kii adhikatam avadhi 30 varsh hai. | `15_Grih_Rin_Niti_HL-2025-08.pdf`, p. 1; `home-loan-tenure` | `true` | Passed |
+| S4 | लॉकर का किराया देय तिथि से 30 दिन के भीतर जमा न करने पर कितना दंड लगता है? | बकाया किराये पर 10 प्रतिशत दंड शुल्क लगाया जाता है। | `16_Locker_Suvidha_Niyam_LOC-2016-07.pdf`, rule 4 | दंड शुल्क 10 प्रतिशत है। | `16_Locker_Suvidha_Niyam_LOC-2016-07.pdf`, p. 1; `locker-late-penalty` | `true` | Passed |
+| S5 | What is the annual fee for the Bank's credit cards? | Not found. The documents do not cover credit cards (they only list debit card fees), so the system should say it could not find the answer rather than quote the debit card fee. | None (out of scope) | I don't have sufficient evidence in the retrieved sources to answer that. | No citations returned; abstention is appropriate. | `false` | Passed |
+
+**Evaluation summary:** 5/5 sample questions passed. The system answered the four supported questions with citations and correctly abstained on the unsupported credit-card fee question.
 
 ### Evaluation criteria
 
