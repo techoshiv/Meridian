@@ -298,8 +298,6 @@ The development test dependency must be available in the Python environment befo
 
 AI tools were used during development for architecture discussions, implementation assistance, code and test review, debugging, and documentation. The accompanying AI-use declaration identifies the tools used, the purpose of that assistance, the work personally designed or verified, and the rationale for significant implementation choices.
 
-The declaration reflects the actual development process and does not claim that all code was written manually.
-
 ## Repository structure
 
 ```text
