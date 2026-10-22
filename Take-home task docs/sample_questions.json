@@ -1,0 +1,37 @@
+[
+  {
+    "id": "S1",
+    "language": "English",
+    "question": "What is the maximum loan-to-value ratio for a loan against debt mutual fund units?",
+    "expected_answer": "75% of the market value of the units.",
+    "expected_source": "04_Loan_Against_Securities_Policy_LAS-2026-01.pdf, section 2"
+  },
+  {
+    "id": "S2",
+    "language": "Hindi (Devanagari)",
+    "question": "10 लाख रुपये से अधिक शेष वाले बचत खाते पर ब्याज दर क्या है?",
+    "expected_answer": "3.50 प्रतिशत वार्षिक (01 अप्रैल 2026 से प्रभावी)।",
+    "expected_source": "12_Bachat_Khata_Byaj_Dar_Suchna_SB-2026-03.pdf, rate table"
+  },
+  {
+    "id": "S3",
+    "language": "Romanised Hindi",
+    "question": "home loan ke liye maximum tenure kitna hai?",
+    "expected_answer": "Home loan ki adhiktam avadhi 30 varsh (30 years) hai.",
+    "expected_source": "15_Grih_Rin_Niti_HL-2025-08.pdf, section 3"
+  },
+  {
+    "id": "S4",
+    "language": "Hindi (Devanagari)",
+    "question": "लॉकर का किराया देय तिथि से 30 दिन के भीतर जमा न करने पर कितना दंड लगता है?",
+    "expected_answer": "बकाया किराये पर 10 प्रतिशत दंड शुल्क लगाया जाता है।",
+    "expected_source": "16_Locker_Suvidha_Niyam_LOC-2016-07.pdf, rule 4"
+  },
+  {
+    "id": "S5",
+    "language": "English",
+    "question": "What is the annual fee for the Bank's credit cards?",
+    "expected_answer": "Not found. The documents do not cover credit cards (they only list debit card fees), so the system should say it could not find the answer rather than quote the debit card fee.",
+    "expected_source": "None (out of scope)"
+  }
+]
